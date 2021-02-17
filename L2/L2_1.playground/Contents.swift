@@ -43,3 +43,32 @@ for value in array {
     }
 }
 print("Из массива убраны четные числа и делящиеся на 3 без остатка: \(array) \n")
+
+// функция добавляет в массив новое число фибоначи, добавить 50 элементов
+
+func arrayFib(_ n: Int) -> [Int] {
+    var fibonacci: [Int] = [1, 1]
+    (2...n).forEach{i in
+        fibonacci.append(fibonacci[i - 1] + fibonacci[i - 2])
+    }
+    return fibonacci
+}
+
+print("Массив чисел Фибоначи из 50 элементов: \(arrayFib(50)) \n")
+
+
+//массив простых чисел до 100
+
+func arrPrimes(arrPassed: [Int]) -> [Int] {
+    var primes: [Int] = []
+    var newArr = arrPassed
+
+    while let newP = newArr.first {
+        primes.append(newP)
+        newArr = newArr.filter { $0 % newP != 0 }
+    }
+
+    return primes
+}
+
+print("Массив простых чисел до 100: \(arrPrimes(arrPassed: Array(2...100)))")
